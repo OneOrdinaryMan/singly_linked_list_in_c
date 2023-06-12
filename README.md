@@ -53,3 +53,5 @@ void prepend(linked_list *input_list, int value) {
 ## Remove head
 ## Insert at index
 ## Remove at index
+# Licence
+This project is licenced under <mark>GPL3.0 or later</mark>licence.Feel free to use the project.
