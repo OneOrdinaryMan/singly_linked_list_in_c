@@ -6,7 +6,7 @@ In a singly linked list, the node contains the value and the pointer to the next
 - [x] Get index
 - [x] Get value at
 - [x] Remove head
-- [ ] Insert at index
+- [x] Insert at index
 - [ ] Remove at index
 
 ## Singly linked list data structure.
@@ -124,6 +124,34 @@ int remove_head(linked_list *input_list) {
 }
 ```
 ## Insert at index
+Insert at index will just insert the new node at the specified index. If index is greater than the size, it will return with __Index out of bounds__ error. If index is 0, it will
+prepend to the list. If index is the size, it will just append.
+
+__Pseudo Code__
+```c
+void insert_at_index(linked_list *input_list, int index, int value) {
+  if (index > input_list->size) {
+    printf("Index out of bounds!\n");
+    return;
+  } else if (index == 0) {
+    prepend(input_list, value);
+    return;
+  } else if (index == input_list->size) {
+    append(input_list, value);
+    return;
+  }
+  node *prev_node = input_list->head;
+  int i = 0;
+  for (; i < index - 1; i++) {
+    prev_node = prev_node->next;
+  }
+  node *new_node = create_node(value);
+  node *curr_node = prev_node->next;
+  prev_node->next = new_node;
+  new_node->next = curr_node;
+  input_list->size++;
+}
+```
 ## Remove at index
 # Licence
 This project is licenced under <mark>GPL3.0 or later</mark>licence.Feel free to use the project.
