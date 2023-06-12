@@ -2,7 +2,7 @@
 In a singly linked list, the node contains the value and the pointer to the next node. The functions used in the linked lists are,
 
 - [x] Prepend
-- [ ] Append
+- [x] Append
 - [ ] Get index
 - [ ] Get value at
 - [ ] Remove head
@@ -48,6 +48,24 @@ void prepend(linked_list *input_list, int value) {
 }
 ```
 ## Append
+Append function adds the new node at the tail and update the tail of the list to new node. If there is no nodes in the list, the new node is both the head and tail of the list.
+
+__Psuedo Code__
+```c
+void append(linked_list *input_list, int value) {
+  node *new_node = create_node(value);
+  if (input_list->size == 0) {
+    input_list->head = new_node;
+    input_list->tail = new_node;
+    input_list->size++;
+    return;
+  }
+  node *current_tail = input_list->tail;
+  input_list->tail = new_node;
+  current_tail->next = new_node;
+  input_list->size++;
+}
+```
 ## Get index
 ## Get value at
 ## Remove head
