@@ -3,7 +3,7 @@ In a singly linked list, the node contains the value and the pointer to the next
 
 - [x] Prepend
 - [x] Append
-- [ ] Get index
+- [x] Get index
 - [ ] Get value at
 - [ ] Remove head
 - [ ] Insert at index
@@ -67,6 +67,26 @@ void append(linked_list *input_list, int value) {
 }
 ```
 ## Get index
+The index functions takes in a value and compare the value in the list and when a node matches the list it returns the index.
+
+__Psuedo Code__
+```c
+int get_index(linked_list *input_list, int value) {
+  if (input_list->size == 0) {
+    printf("The list is empty.\n");
+    return -1;
+  }
+  int i = 0;
+  node *current_node = input_list->head;
+  for (; i < input_list->size; i++) {
+    if (current_node->value == value) {
+      return i;
+    }
+    current_node = current_node->next;
+  }
+  return -1;
+}
+```
 ## Get value at
 ## Remove head
 ## Insert at index
