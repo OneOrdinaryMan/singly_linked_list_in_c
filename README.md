@@ -7,7 +7,7 @@ In a singly linked list, the node contains the value and the pointer to the next
 - [x] Get value at
 - [x] Remove head
 - [x] Insert at index
-- [ ] Remove at index
+- [x] Remove at index
 
 ## Singly linked list data structure.
 The structure of the linked list is,
@@ -35,12 +35,14 @@ __Psuedo Code__
 ```c
 void prepend(linked_list *input_list, int value) {
   node *new_node = create_node(value);
+
   if (input_list->size == 0) {
     input_list->head = new_node;
     input_list->tail = new_node;
     input_list->size++;
     return;
   }
+
   node *current_head = input_list->head;
   new_node->next = current_head;
   input_list->head = new_node;
@@ -54,12 +56,14 @@ __Psuedo Code__
 ```c
 void append(linked_list *input_list, int value) {
   node *new_node = create_node(value);
+
   if (input_list->size == 0) {
     input_list->head = new_node;
     input_list->tail = new_node;
     input_list->size++;
     return;
   }
+
   node *current_tail = input_list->tail;
   input_list->tail = new_node;
   current_tail->next = new_node;
@@ -76,14 +80,17 @@ int get_index(linked_list *input_list, int value) {
     printf("The list is empty.\n");
     return -1;
   }
+
   int i = 0;
   node *current_node = input_list->head;
+
   for (; i < input_list->size; i++) {
     if (current_node->value == value) {
       return i;
     }
     current_node = current_node->next;
   }
+
   return -1;
 }
 ```
@@ -97,11 +104,14 @@ int get_value(linked_list *input_list, int index) {
     printf("The list is empty.\n");
     return 0;
   }
+
   int i = 0;
   node *current_node = input_list->head;
+
   for (; i < index; i++) {
     current_node = current_node->next;
   }
+
   return current_node->value;
 }
 ```
@@ -115,6 +125,7 @@ int remove_head(linked_list *input_list) {
     printf("The list is empty.\n");
     return 0;
   }
+
   node *current_head = input_list->head;
   int return_value = current_head->value;
   input_list->head = current_head->next;
@@ -140,11 +151,14 @@ void insert_at_index(linked_list *input_list, int index, int value) {
     append(input_list, value);
     return;
   }
+
   node *prev_node = input_list->head;
   int i = 0;
+
   for (; i < index - 1; i++) {
     prev_node = prev_node->next;
   }
+
   node *new_node = create_node(value);
   node *curr_node = prev_node->next;
   prev_node->next = new_node;
@@ -153,5 +167,30 @@ void insert_at_index(linked_list *input_list, int index, int value) {
 }
 ```
 ## Remove at index
+Remove the node at index and free the pointer. Returns the value of the freeing node. If index is greater than size, returns with 0. If index is 0, uses remove head function.
+```c
+int remove_at_index(linked_list *input_list, int index) {
+  if (index >= input_list->size) {
+    printf("Index out of bounds!\n");
+    return 0;
+  } else if (index == 0) {
+    return remove_head(input_list);
+  }
+
+  node *prev_node = input_list->head;
+  int i = 0;
+
+  for (; i < index - 1; i++) {
+    prev_node = prev_node->next;
+  }
+
+  node *curr_node = prev_node->next;
+  prev_node->next = curr_node->next;
+  int return_value = curr_node->value;
+  free(curr_node);
+  input_list->size--;
+  return return_value;
+}
+```
 # Licence
 This project is licenced under <mark>GPL3.0 or later</mark>licence.Feel free to use the project.
