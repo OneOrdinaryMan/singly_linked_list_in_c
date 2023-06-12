@@ -9,7 +9,12 @@ int main() {
     printf("%d\t", get_value(&input, i));
   }
   printf("\n");
-  printf("%d\n", get_index(&input, 10));
+  insert_at_index(&input, 2, 0);
+  for (int i = 0; i < 10; i++) {
+    printf("%d\t", get_value(&input, i));
+  }
+  printf("\n");
+  printf("%d\n", get_index(&input, 0));
   delete_list(&input);
   return 0;
 }
