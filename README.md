@@ -1,7 +1,7 @@
 # Singly Linked List
 In a singly linked list, the node contains the value and the pointer to the next node. The functions used in the linked lists are,
 
-- [ ] Prepend
+- [x] Prepend
 - [ ] Append
 - [ ] Get index
 - [ ] Get value at
