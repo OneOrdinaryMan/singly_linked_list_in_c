@@ -19,7 +19,7 @@ void append(linked_list *, int);
 int get_index(linked_list *, int);
 int get_value(linked_list *, int);
 int remove_head(linked_list *);
-void insert_at_index(linked_list *, int);
+void insert_at_index(linked_list *, int, int);
 int remove_at_index(linked_list *, int);
 void delete_list(linked_list *);
 #endif
