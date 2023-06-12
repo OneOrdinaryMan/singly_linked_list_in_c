@@ -66,7 +66,18 @@ int get_index(linked_list *input_list, int value) {
   }
   return -1;
 }
-int get_value(linked_list *, int);
+int get_value(linked_list *input_list, int index) {
+  if (index >= input_list->size) {
+    printf("The list is empty.\n");
+    return 0;
+  }
+  int i = 0;
+  node *current_node = input_list->head;
+  for (; i <= index; i++) {
+    current_node = current_node->next;
+  }
+  return current_node->value;
+}
 int remove_head(linked_list *);
 void insert_at_index(linked_list *, int);
 int remove_at_index(linked_list *, int);
