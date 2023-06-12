@@ -51,7 +51,21 @@ void append(linked_list *input_list, int value) {
   current_tail->next = new_node;
   input_list->size++;
 }
-int get_index(linked_list *, int);
+int get_index(linked_list *input_list, int value) {
+  if (input_list->size == 0) {
+    printf("The list is empty.\n");
+    return -1;
+  }
+  int i = 0;
+  node *current_node = input_list->head;
+  for (; i < input_list->size; i++) {
+    if (current_node->value == value) {
+      return i;
+    }
+    current_node = current_node->next;
+  }
+  return -1;
+}
 int get_value(linked_list *, int);
 int remove_head(linked_list *);
 void insert_at_index(linked_list *, int);
