@@ -4,7 +4,7 @@ In a singly linked list, the node contains the value and the pointer to the next
 - [x] Prepend
 - [x] Append
 - [x] Get index
-- [ ] Get value at
+- [x] Get value at
 - [ ] Remove head
 - [ ] Insert at index
 - [ ] Remove at index
@@ -88,6 +88,23 @@ int get_index(linked_list *input_list, int value) {
 }
 ```
 ## Get value at
+Get value function will get the value of the node at a specific index. If the index is greater than or equal to the size it will return 0.
+
+__Pseudo Code__
+```c
+int get_value(linked_list *input_list, int index) {
+  if (index >= input_list->size) {
+    printf("The list is empty.\n");
+    return 0;
+  }
+  int i = 0;
+  node *current_node = input_list->head;
+  for (; i <= index; i++) {
+    current_node = current_node->next;
+  }
+  return current_node->value;
+}
+```
 ## Remove head
 ## Insert at index
 ## Remove at index
