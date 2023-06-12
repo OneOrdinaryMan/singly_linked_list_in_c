@@ -9,7 +9,7 @@ int main() {
     printf("%d\t", get_value(&input, i));
   }
   printf("\n");
-  printf("%d\n", get_index(&input, 3));
+  printf("%d\n", get_index(&input, 10));
   delete_list(&input);
   return 0;
 }
