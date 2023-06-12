@@ -112,7 +112,25 @@ void insert_at_index(linked_list *input_list, int index, int value) {
   new_node->next = curr_node;
   input_list->size++;
 }
-int remove_at_index(linked_list *, int);
+int remove_at_index(linked_list *input_list, int index) {
+  if (index >= input_list->size) {
+    printf("Index out of bounds!\n");
+    return 0;
+  } else if (index == 0) {
+    return remove_head(input_list);
+  }
+  node *prev_node = input_list->head;
+  int i = 0;
+  for (; i < index - 1; i++) {
+    prev_node = prev_node->next;
+  }
+  node *curr_node = prev_node->next;
+  prev_node->next = curr_node->next;
+  int return_value = curr_node->value;
+  free(curr_node);
+  input_list->size--;
+  return return_value;
+}
 void delete_list(linked_list *input_list) {
   while (input_list->size != 0) {
     remove_head(input_list);
