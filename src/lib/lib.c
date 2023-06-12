@@ -25,7 +25,19 @@ node *create_node(int value) {
   return_node->next = NULL;
   return return_node;
 }
-void prepend(linked_list *, int);
+void prepend(linked_list *input_list, int value) {
+  node *new_node = create_node(value);
+  if (input_list->size == 0) {
+    input_list->head = new_node;
+    input_list->tail = new_node;
+    input_list->size++;
+    return;
+  }
+  node *current_head = input_list->head;
+  new_node->next = current_head;
+  input_list->head = new_node;
+  input_list->size++;
+}
 void append(linked_list *, int);
 int get_index(linked_list *, int);
 int get_value(linked_list *, int);
