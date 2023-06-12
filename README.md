@@ -99,7 +99,7 @@ int get_value(linked_list *input_list, int index) {
   }
   int i = 0;
   node *current_node = input_list->head;
-  for (; i <= index; i++) {
+  for (; i < index; i++) {
     current_node = current_node->next;
   }
   return current_node->value;
