@@ -5,8 +5,11 @@ int main() {
   for (int i = 1; i < 10; i++) {
     append(&input, i);
   }
-  printf("%d\n", get_index(&input, 4));
-  printf("%d\n", get_value(&input, 0));
+  for (int i = 0; i < 9; i++) {
+    printf("%d\t", get_value(&input, i));
+  }
+  printf("\n");
+  printf("%d\n", get_index(&input, 3));
   delete_list(&input);
   return 0;
 }
