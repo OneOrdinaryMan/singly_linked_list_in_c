@@ -5,7 +5,7 @@ In a singly linked list, the node contains the value and the pointer to the next
 - [x] Append
 - [x] Get index
 - [x] Get value at
-- [ ] Remove head
+- [x] Remove head
 - [ ] Insert at index
 - [ ] Remove at index
 
@@ -106,6 +106,23 @@ int get_value(linked_list *input_list, int index) {
 }
 ```
 ## Remove head
+Remove head will remove the head node and the struct will have the next node as the head. Returns if list is empty.
+
+__Pseudo Code__
+```c
+int remove_head(linked_list *input_list) {
+  if (input_list->size == 0) {
+    printf("The list is empty.\n");
+    return 0;
+  }
+  node *current_head = input_list->head;
+  int return_value = current_head->value;
+  input_list->head = current_head->next;
+  free(current_head);
+  input_list->size--;
+  return return_value;
+}
+```
 ## Insert at index
 ## Remove at index
 # Licence
