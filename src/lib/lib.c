@@ -92,4 +92,8 @@ int remove_head(linked_list *input_list) {
 }
 void insert_at_index(linked_list *, int);
 int remove_at_index(linked_list *, int);
-void delete_list(linked_list *);
+void delete_list(linked_list *input_list) {
+  while (input_list->size != 0) {
+    remove_head(input_list);
+  }
+}
