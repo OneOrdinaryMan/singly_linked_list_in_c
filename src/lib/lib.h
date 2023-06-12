@@ -13,7 +13,7 @@ typedef struct {
   node *tail;
 } linked_list;
 linked_list create_list();
-node *create_node();
+node *create_node(int);
 void prepend(linked_list *, int);
 void append(linked_list *, int);
 int get_index(linked_list *, int);
