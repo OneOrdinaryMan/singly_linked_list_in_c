@@ -9,8 +9,8 @@ struct Node {
 typedef struct Node node;
 typedef struct {
   int size;
-  node head;
-  node tail;
+  node *head;
+  node *tail;
 } linked_list;
 linked_list create_list();
 node *create_node();
